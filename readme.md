@@ -11,6 +11,14 @@ Just drop `caesar-lazyvim.lua` in your `.config/nvim/lua/plugins` directory, or 
 
 **Note**: You need to install Caesar separately, and its executable needs to be in your `$PATH`.
 
+## Features
+
+- `CaesarVerify` command to verify the current buffer.
+- Reverify after writing (saving) buffers.
+- Inline explanations (via `custom/computedPre`). Highly recommended to use [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim).
+- Tree-Sitter config (among others for syntax highlighting).
+
+
 ## Frequently Asked Questions
 
 ### Why did you make this?
