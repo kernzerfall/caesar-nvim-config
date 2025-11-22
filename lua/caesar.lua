@@ -7,6 +7,7 @@ vim.filetype.add({
 	},
 })
 
+-- setup the custom/verify command
 local function setup_verify()
 	vim.api.nvim_create_user_command("CaesarVerify", function()
 		local bufnr = vim.api.nvim_get_current_buf()
@@ -37,6 +38,7 @@ local function setup_verify()
 	end, { desc = "Manually trigger Caesar verification" })
 end
 
+-- handle explanations (custom/computedPre)
 local function setup_explanations()
 	local ns_id = vim.api.nvim_create_namespace("caesar_explanations")
 	vim.api.nvim_set_hl(0, "CaesarVirtualText", { link = "DiagnosticVirtualTextInfo", default = true })
