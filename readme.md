@@ -9,6 +9,8 @@ A (work-in-progress) `nvim-lspconfig` and `nvim-treesitter` config for the [Caes
 
 Just drop `caesar-lazyvim.lua` in your `.config/nvim/lua/plugins` directory, or adapt it for your own installation.
 
+You may need to run `:TSInstall heyvl` to get syntax highlighting.
+
 **Note**: You need to install Caesar separately, and its executable needs to be in your `$PATH`.
 
 ## Features
