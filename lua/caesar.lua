@@ -113,8 +113,8 @@ local function setup_explanations()
 				if #wrapped_lines > 0 then
 					table.insert(virt_lines, { { padding .. "▷ " .. wrapped_lines[1], "CaesarVirtualText" } })
 				end
-				for i = 2, #wrapped_lines do
-					table.insert(virt_lines, { { padding .. "  " .. wrapped_lines[i], "CaesarVirtualText" } })
+				for j = 2, #wrapped_lines do
+					table.insert(virt_lines, { { padding .. "  " .. wrapped_lines[j], "CaesarVirtualText" } })
 				end
 			end
 
