@@ -9,6 +9,8 @@ A `nvim-lspconfig` and `nvim-treesitter` config for the [Caesar Verifier](https:
 
 Just drop `caesar.lua` in your `.config/nvim/lua/plugins` directory.
 
+**Note**: You need to install Caesar separately, and its executable needs to be in your `$PATH`.
+
 ## Frequently Asked Questions
 
 ### Why did you make this?
