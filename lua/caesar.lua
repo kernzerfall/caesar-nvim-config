@@ -199,9 +199,25 @@ function M.register_parser(parser_config)
 	})
 end
 
-function M.setup(_)
+function M.colours_default()
+	return {
+		declaration_condition = { fg = "#E86D77" },
+		declaration_var = { link = "@keyword" },
+		declaration = { fg = "#90BB64" },
+	}
+end
+
+local function setup_colours(opts)
+	local hl = vim.api.nvim_set_hl
+	hl(0, "@keyword.declaration.condition", opts.declaration_condition)
+	hl(0, "@keyword.declaration.var", opts.declaration_var)
+	hl(0, "@keyword.declaration", opts.declaration)
+end
+
+function M.setup(opts)
 	setup_explanations()
 	setup_verify()
+	setup_colours(opts and opts.hl or M.colours_default())
 
 	-- Reverify after writing a buffer
 	vim.api.nvim_create_autocmd("BufWritePost", {
