@@ -1,4 +1,4 @@
-# Caesar/HeyVL config for lazyvim (neovim)
+# Caesar/HeyVL config for neovim
 
 A (work-in-progress) `nvim-lspconfig` and `nvim-treesitter` config for the [Caesar Verifier](https://github.com/moves-rwth/caesar).
 
@@ -7,7 +7,9 @@ A (work-in-progress) `nvim-lspconfig` and `nvim-treesitter` config for the [Caes
 
 ## Installation
 
-Just drop `caesar-lazyvim.lua` in your `.config/nvim/lua/plugins` directory, or adapt it for your own installation.
+If you use `lazyvim`, just drop `caesar-lazyvim.lua` in your `.config/nvim/lua/plugins` directory, 
+or adapt it for your own installation. For other neovim setups, you will have to adapt
+the `lazyvim` config yourself.
 
 You may need to run `:TSInstall heyvl` to get syntax highlighting.
 
@@ -19,7 +21,29 @@ You may need to run `:TSInstall heyvl` to get syntax highlighting.
 - Reverify after writing (saving) buffers.
 - Inline explanations (via `custom/computedPre`). Highly recommended to use [lsp_lines.nvim](https://git.sr.ht/~whynothugo/lsp_lines.nvim).
 - Tree-Sitter config (among others for syntax highlighting).
+- Handles `custom/documentStatus` (✔/✖/... next to proc/coproc/... depending on verification status)
+- Statusline integration of `documentStatus` possible (e.g. with `lualine`, see below).
 
+### Statusline integration
+
+For example, using `lazyvim` with `lualine`, you can show the status on the left like this:
+
+```lua
+{
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "kernzerfall/caesar.nvim" },
+  opts = function(_, opts)
+    table.insert(opts.sections.lualine_c, 1, {
+      require("caesar").line_status,
+      cond = function()
+        return vim.bo.filetype == "heyvl"
+      end,
+      color = { fg = "#E8E6E3", bg = "#0E4E40" },
+      separator = { right = "" },
+    })
+  end,
+}
+```
 
 ## Frequently Asked Questions
 
